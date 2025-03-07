@@ -1,6 +1,6 @@
 # grpc-es-bridge
 
-A lightweight adapter that bridges protoc‑gen‑es generated stubs—designed for a @connectrpc/connect runtime—with the grpc‑js implementation. This package is useful in scenarios when you need to send requests using grpc‑js with protoc‑gen‑es generated stubs.
+A lightweight adapter that bridges [protoc‑gen‑es](https://www.npmjs.com/package/@bufbuild/protoc-gen-es) generated stubs—designed for a [@connectrpc/connect](https://www.npmjs.com/package/@connectrpc/connect) runtime—with the [grpc‑js](https://www.npmjs.com/package/@grpc/grpc-js) implementation. This package is useful in scenarios when you need to send requests using grpc‑js with protoc‑gen‑es generated stubs.
 
 ## Overview
 
