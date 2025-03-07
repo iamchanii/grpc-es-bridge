@@ -31,11 +31,6 @@
     "prepare": "lefthook install"
   },
   "author": "Chanhee Lee <contact@imch.dev>",
-  "lint-staged": {
-    "*.{ts,tsx,json,md}": [
-      "biome check --fix --no-errors-on-unmatched"
-    ]
-  },
   "keywords": [
     "grpc"
   ],
