@@ -1,12 +1,68 @@
 {
   "name": "grpc-es-bridge",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "license": "MIT",
+  "type": "module",
+  "homepage": "https://github.com/iamchanii/grpc-es-bridge#readme",
+  "bugs": {
+    "url": "https://github.com/iamchanii/grpc-es-bridge/issues"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamchanii/grpc-es-bridge.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./connectrpc": {
+      "module": "./dist/connectrpc.js",
+      "types": "./dist/connectrpc.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsdown",
+    "prepublishOnly": "tsdown",
+    "prepare": "lefthook install"
+  },
+  "author": "Chanhee Lee <contact@imch.dev>",
+  "lint-staged": {
+    "*.{ts,tsx,json,md}": [
+      "biome check --fix --no-errors-on-unmatched"
+    ]
+  },
+  "keywords": [
+    "grpc"
+  ],
+  "peerDependencies": {
+    "@bufbuild/protobuf": "^2",
+    "@grpc/grpc-js": "^1",
+    "@connectrpc/connect": "^2"
+  },
+  "peerDependenciesMeta": {
+    "@connectrpc/connect": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@bufbuild/protobuf": "^2.2.3",
+    "@connectrpc/connect": "^2.0.2",
+    "@grpc/grpc-js": "^1.12.6",
+    "lefthook": "^1.11.3",
+    "oxc-transform": "^0.56.4",
+    "publint": "^0.3.8",
+    "tsdown": "^0.6.4",
+    "unplugin-unused": "^0.4.3"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@biomejs/biome"
+    ]
+  }
 }
