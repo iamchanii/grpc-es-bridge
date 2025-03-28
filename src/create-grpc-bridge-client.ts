@@ -2,6 +2,7 @@ import type {
   GenService,
   GenServiceMethods,
 } from '@bufbuild/protobuf/codegenv1';
+import type { GenMessage } from '@bufbuild/protobuf/codegenv1';
 import * as grpc from '@grpc/grpc-js';
 import {
   type GrpcServiceDefinition,
@@ -26,10 +27,12 @@ interface UnaryRpcMethod<TRequest, TResponse> {
   ): grpc.ClientUnaryCall;
 }
 
+type InferGenMessage<T> = T extends GenMessage<infer U> ? U : never;
+
 type UnaryRpcMethods<TRuntimeShape extends GenServiceMethods> = {
   [MethodName in keyof TRuntimeShape]: UnaryRpcMethod<
-    TRuntimeShape[MethodName]['input'],
-    TRuntimeShape[MethodName]['output']
+    InferGenMessage<TRuntimeShape[MethodName]['input']>,
+    InferGenMessage<TRuntimeShape[MethodName]['output']>
   >;
 };
 
